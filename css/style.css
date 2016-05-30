@@ -172,6 +172,10 @@ span {
   padding: 5px;
 }
 
+.inline {
+  display: inline;
+}
+
 #lets-connect {
   text-align: center;
 }

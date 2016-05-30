@@ -86,6 +86,27 @@ bio.display = function() {
 	$("#header").prepend(formattedRole);
 	$("#header").prepend(formattedName);
 
+	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	var formattedEmail = HTMLemail.replace("%url%", bio.contacts.email).replace("%data%", bio.contacts.email);
+	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+	var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+
+	var idStrings = ["#topContacts", "#footerContacts"];
+	for (var i = 0, id; i < idStrings.length; i++) {
+		id = idStrings[i];
+		$(id).append(formattedMobile);
+		$(id).append(formattedEmail);
+		$(id).append(formattedGithub);
+		$(id).append(formattedTwitter);
+		$(id).append(formattedLocation);
+	}
+
+ 	$("#header").append(HTMLskillsStart);
+
+ 	for (i = 0; i < bio.skills.length; i++) {
+ 		var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
+ 	}
 }
 
 bio.display();
