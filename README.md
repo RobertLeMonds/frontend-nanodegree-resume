@@ -4,6 +4,7 @@ I ended up taking longer on this project than expected due to my lack of underst
 
 ##GitHub Pages Link
 
+http://robertlemonds.github.io/frontend-nanodegree-resume
 
 ##Changes that were made to the Original Look
 
