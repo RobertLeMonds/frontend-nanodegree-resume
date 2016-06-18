@@ -54,11 +54,20 @@ var work = {
 
 var projects = {
     "projects": [{
-        "title": "Portfolio Project",
-        "dates": "April 2016",
-        "description": "Udacity's Portfolio Project",
-        "images": ["images/portfolio.png"]
-    }]
+        	"title": "Portfolio Project",
+        	"dates": "April 2016",
+        	"description": "Udacity's Portfolio Project",
+        	"images": ["images/portfolio.png"]
+    	},
+
+    	{
+    		"title": "Random Image project",
+    		"dates": "May 2016",
+    		"description": "Random Placeholder",
+    		"images": ["images/placeholder.png"]
+    	}
+
+    ]
 };
 
 bio.display = function() {
@@ -66,10 +75,7 @@ bio.display = function() {
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
     var formattedMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
     var formattedbioPic = HTMLbioPic.replace("%data%", bio.biopic);
-    $("#header").prepend(formattedbioPic);
-    $("#header").prepend(formattedMsg);
-    $("#header").prepend(formattedRole);
-    $("#header").prepend(formattedName);
+    $("#header").prepend(formattedbioPic, formattedMsg, formattedRole, formattedName);
 
     var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
     var formattedEmail = HTMLemail.replace("%url%", bio.contacts.email).replace("%data%", bio.contacts.email);
@@ -81,10 +87,6 @@ bio.display = function() {
     for (var i = 0, id; i < idStrings.length; i++) {
         id = idStrings[i];
         $(id).append(formattedMobile, formattedEmail, formattedGithub, formattedTwitter, formattedLocation);
-       /* $(id).append(formattedEmail);
-        $(id).append(formattedGithub);
-        $(id).append(formattedTwitter);
-        $(id).append(formattedLocation); */
     }
 
     $("#header").append(HTMLskillsStart);
@@ -110,11 +112,11 @@ work.display = function() {
 		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
 		$(".work-entry:last").append(formattedDates);
 
+		var formattedWLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
+        $(".work-entry:last").append(formattedWLocation);
+
 		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
         $(".work-entry:last").append(formattedDescription);
-
-        var formattedWLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
-        $(".work-entry:last").append(formattedWLocation);
 	}
 };
 
@@ -165,14 +167,14 @@ education.display = function() {
         $(".education-entry:last").append(formattedSchoolMajor);
     }
 
+
     for (var i = 0; i < education.onlineCourses.length; i++) {
-    	
-    	var formattedOnlineClasses = HTMLonlineClasses;
-    	$(".education-entry:last").append(formattedOnlineClasses);
+
+    	$("#education").append(HTMLonlineClasses);
+    	$("#education").append(HTMLschoolStart);
 
     	var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title);
     	
-
     	var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
     	$(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool);
 
